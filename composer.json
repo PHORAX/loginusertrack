@@ -1,0 +1,16 @@
+{
+    "name": "phorax/loginusertrack",
+	"type": "typo3-cms-extension",
+    "authors": [
+        {
+            "name": "PHORAX",
+            "email": "hello@phorax.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "class.tx_loginusertrack_tsfehook.php",
+            "Classes/"
+        ]
+    }
+}
