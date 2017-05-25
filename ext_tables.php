@@ -7,7 +7,7 @@ if (TYPO3_MODE === 'BE')	{
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addModule("web","txloginusertrackM1","before:info",\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY)."mod1/");
 }
 
-$TCA['tx_loginusertrack_stat'] = array(
+$GLOBALS['TCA']['tx_loginusertrack_stat'] = array(
 	'ctrl' => array (
 		'title' => 'LLL:EXT:loginusertrack/locallang_db.xml:tx_loginusertrack_stat',
 		'label' => 'uid',
@@ -22,7 +22,7 @@ $TCA['tx_loginusertrack_stat'] = array(
 );
 t3lib_extMgm::allowTableOnStandardPages('tx_loginusertrack_stat');
 
-$TCA['tx_loginusertrack_pagestat'] = array(
+$GLOBALS['TCA']['tx_loginusertrack_pagestat'] = array(
 	'ctrl' => array (
 		'title' => 'LLL:EXT:loginusertrack/locallang_db.xml:tx_loginusertrack_pagestat',
 		'label' => 'uid',

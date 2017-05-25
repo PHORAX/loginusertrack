@@ -2,8 +2,8 @@
 // $Id: tca.php 8343 2008-02-21 13:24:58Z liels_bugs $
 if (!defined ('TYPO3_MODE')) die('Access denied.');
 
-$TCA['tx_loginusertrack_stat'] = array(
-	'ctrl' => $TCA['tx_loginusertrack_stat']['ctrl'],
+$GLOBALS['TCA']['tx_loginusertrack_stat'] = array(
+	'ctrl' => $GLOBALS['TCA']['tx_loginusertrack_stat']['ctrl'],
 	'interface' => Array (
 		'maxDBListItems' => 60,
 	),
@@ -67,8 +67,8 @@ $TCA['tx_loginusertrack_stat'] = array(
 );
 
 
-$TCA['tx_loginusertrack_pagestat'] = array(
-	'ctrl' => $TCA['tx_loginusertrack_pagestat']['ctrl'],
+$GLOBALS['TCA']['tx_loginusertrack_pagestat'] = array(
+	'ctrl' => $GLOBALS['TCA']['tx_loginusertrack_pagestat']['ctrl'],
 	'interface' => Array (
 		'maxDBListItems' => 60,
 	),
