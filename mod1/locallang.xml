@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description></description>
+        <type>module</type>
+        <csh_table></csh_table>
+        <labelContext type="array">
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="title">User Track</label>
+            <label index="function1">Login log</label>
+            <label index="function2">Weekly view</label>
+            <label index="function3">Monthly view</label>
+            <label index="function4">Inactive users</label>
+            <label index="function5">Active users</label>
+            <label index="header_datetime">Date/Time:</label>
+            <label index="header_age">Age:</label>
+            <label index="header_username">Username:</label>
+            <label index="header_name">Name:</label>
+            <label index="header_session_lgd">Sess. lgd:</label>
+            <label index="header_pagehits">Page hits:</label>
+            <label index="header_ipaddress">IP address:</label>
+            <label index="header_numsessions">Sessions:</label>
+            <label index="header_logins">Logins:</label>
+            <label index="header_pid">ID:</label>
+            <label index="header_pagetitle">Page:</label>
+            <label index="header_firsthit">First hit:</label>
+            <label index="header_lasthit">Last hit:</label>
+            <label index="header_pagestats">Page statistics</label>
+            <label index="mainheader_weekly">Weekly periods:</label>
+            <label index="mainheader_monthly">Monthly periods:</label>
+            <label index="mainheader_log">Log:</label>
+            <label index="period">Period:</label>
+            <label index="modulecont_listAllSessions">List all sessions for this user</label>
+            <label index="modulecont_listAllUsers">List all users</label>
+            <label index="Last_logins">Last logins</label>
+            <label index="lastlogin_removeold_subject">Login User Notice!</label>
+            <label index="lastlogin_main_enterTheDaysSince">Enter the days since &quot;last login&quot; you want as limit</label>
+            <label index="lastlogin_main_setDaysSinceLast">Set days since last login</label>
+            <label index="lastlogin_main_totalNumberOfUsers">Total number of users (in page)</label>
+            <label index="lastlogin_main_activeUsersLoggedIn">Active users, logged in during the last %s days</label>
+            <label index="lastlogin_removeold_usersWithLastLogin">Users with last login older than %s days</label>
+            <label index="lastlogin_removeold_username">Username:</label>
+            <label index="lastlogin_removeold_name">Name:</label>
+            <label index="lastlogin_removeold_email">Email:</label>
+            <label index="lastlogin_removeold_lastLogin">Last login:</label>
+            <label index="lastlogin_removeold_deletedSUsers">Deleted %s users!</label>
+            <label index="lastlogin_removeold_sentSWarningEmails">Sent %s warning emails!</label>
+            <label index="lastlogin_removeold_sentDeletedEmails">Sent %s notification emails!</label>
+            <label index="lastlogin_removeold_numberOfInactiveUsers">Number of &quot;inactive&quot; users:</label>
+            <label index="lastlogin_removeold_didNotLoginDuring">Did not login during last %s days.</label>
+            <label index="lastlogin_removeold_hiNameYouAre">Hi ###NAME###,
+
+You are a registered user on the website %s - that is why you receive this mail.
+
+It appears that you have not logged in with your username ###USERNAME### during the last %s days.
+
+If you do not log in within 10 days your account may be deleted without further notice.
+
+If you want to keep your account, simply visit %s and login with your username.
+
+Best Regards</label>
+            <label index="lastlogin_removeold_hiNameYouWere">
+Hi ###NAME###,
+
+You were a registered user on the website %s - that is why you receive this mail.
+
+Some days ago you should have been notified that your account would be deleted if you did not log in within a certain timespan.
+
+That has happend now - your account for username, ###USERNAME###, has been deleted from the system.
+
+Best Regards
+		</label>
+            <label index="lastlogin_removeold_sendingAWarningEmail">Sending a warning email to the users listed above:</label>
+            <label index="lastlogin_removeold_senderName">Sender name:</label>
+            <label index="lastlogin_removeold_senderEmail">Sender email:</label>
+            <label index="lastlogin_removeold_sendATestTo">Send a test to this username first:</label>
+            <label index="lastlogin_removeold_sendWarningEmail">Send warning email</label>
+            <label index="lastlogin_removeold_sendUpdate">Just update screen (don't sent)</label>
+            <label index="lastlogin_removeold_deleteUsers">DELETE USERS!</label>
+            <label index="lastlogin_removeold_delete">DELETE</label>
+            <label index="lastlogin_showactive_ifYouCheckThis">If you check this options ALL users listed above will be deleted.&lt;br&gt;
+BEFORE you do this you should have sent a warning email telling people to login if they want to keep their accounts!&lt;br&gt;
+NOTICE: If you do not have the permissions to delete records from the Website Users table, then no users will be deleted!&lt;Br&gt;
+If you keep the message field filled in, then that message is sent to notify the user, otherwise no email is sent, the users are just deleted.&lt;br&gt;
+(Checking the DELETE flag will insert another predefined message in the message field).</label>
+            <label index="lastlogin_showactive_username">Username:</label>
+            <label index="lastlogin_showactive_name">Name:</label>
+            <label index="lastlogin_showactive_email">Email:</label>
+            <label index="lastlogin_showactive_lastLogin">Last login:</label>
+            <label index="lastlogin_showactive_numberOfActiveUsers">Number of &quot;active&quot; users:</label>
+            <label index="lastlogin_sendwarnin_usersAreShownHere">Users are shown here based on the criteria that:&lt;br&gt;
+a) They have been logged in during the last %s days.&lt;br&gt;
+b) They were created more that %s days ago.&lt;br&gt;
+c) The timespan between the date of creation and the last login is at least %s days.</label>
+        </languageKey>
+    </data>
+    <orig_hash type="array">
+        <languageKey index="default" type="array">
+            <label index="title" type="integer">111882074</label>
+            <label index="function1" type="integer">69331659</label>
+            <label index="function2" type="integer">137560251</label>
+            <label index="function3" type="integer">78419679</label>
+            <label index="function4" type="integer">264753687</label>
+            <label index="function5" type="integer">219759705</label>
+            <label index="header_datetime" type="integer">101224737</label>
+            <label index="header_age" type="integer">38941977</label>
+            <label index="header_username" type="integer">212632006</label>
+            <label index="header_name" type="integer">81871034</label>
+            <label index="header_session_lgd" type="integer">40849862</label>
+            <label index="header_pagehits" type="integer">74657304</label>
+            <label index="header_ipaddress" type="integer">260233188</label>
+            <label index="header_numsessions" type="integer">246703247</label>
+            <label index="header_logins" type="integer">198636124</label>
+            <label index="header_pid" type="integer">235866885</label>
+            <label index="header_pagetitle" type="integer">230383377</label>
+            <label index="header_firsthit" type="integer">199045787</label>
+            <label index="header_lasthit" type="integer">57323092</label>
+            <label index="header_pagestats" type="integer">66125725</label>
+            <label index="mainheader_weekly" type="integer">86138421</label>
+            <label index="mainheader_monthly" type="integer">190698978</label>
+            <label index="mainheader_log" type="integer">207803734</label>
+            <label index="period" type="integer">11257495</label>
+            <label index="modulecont_listAllSessions" type="integer">125558055</label>
+            <label index="modulecont_listAllUsers" type="integer">200316124</label>
+            <label index="Last_logins" type="integer">1249863</label>
+            <label index="lastlogin_removeold_subject" type="integer">92902725</label>
+            <label index="lastlogin_main_enterTheDaysSince" type="integer">74999254</label>
+            <label index="lastlogin_main_setDaysSinceLast" type="integer">208646299</label>
+            <label index="lastlogin_main_totalNumberOfUsers" type="integer">198463454</label>
+            <label index="lastlogin_main_activeUsersLoggedIn" type="integer">239478909</label>
+            <label index="lastlogin_removeold_usersWithLastLogin" type="integer">253761953</label>
+            <label index="lastlogin_removeold_username" type="integer">212632006</label>
+            <label index="lastlogin_removeold_name" type="integer">81871034</label>
+            <label index="lastlogin_removeold_email" type="integer">111272549</label>
+            <label index="lastlogin_removeold_lastLogin" type="integer">210202371</label>
+            <label index="lastlogin_removeold_deletedSUsers" type="integer">216490386</label>
+            <label index="lastlogin_removeold_sentSWarningEmails" type="integer">19226540</label>
+            <label index="lastlogin_removeold_sentDeletedEmails" type="integer">223784912</label>
+            <label index="lastlogin_removeold_numberOfInactiveUsers" type="integer">70879182</label>
+            <label index="lastlogin_removeold_didNotLoginDuring" type="integer">80070920</label>
+            <label index="lastlogin_removeold_hiNameYouAre" type="integer">73946946</label>
+            <label index="lastlogin_removeold_hiNameYouWere" type="integer">204443586</label>
+            <label index="lastlogin_removeold_sendingAWarningEmail" type="integer">34120239</label>
+            <label index="lastlogin_removeold_senderName" type="integer">18129872</label>
+            <label index="lastlogin_removeold_senderEmail" type="integer">18377364</label>
+            <label index="lastlogin_removeold_sendATestTo" type="integer">54005961</label>
+            <label index="lastlogin_removeold_sendWarningEmail" type="integer">216215295</label>
+            <label index="lastlogin_removeold_sendUpdate" type="integer">93196086</label>
+            <label index="lastlogin_removeold_deleteUsers" type="integer">219265645</label>
+            <label index="lastlogin_removeold_delete" type="integer">53438630</label>
+            <label index="lastlogin_showactive_ifYouCheckThis" type="integer">60630201</label>
+            <label index="lastlogin_showactive_username" type="integer">212632006</label>
+            <label index="lastlogin_showactive_name" type="integer">81871034</label>
+            <label index="lastlogin_showactive_email" type="integer">111272549</label>
+            <label index="lastlogin_showactive_lastLogin" type="integer">210202371</label>
+            <label index="lastlogin_showactive_numberOfActiveUsers" type="integer">101011592</label>
+            <label index="lastlogin_sendwarnin_usersAreShownHere" type="integer">96276862</label>
+        </languageKey>
+    </orig_hash>
+    <orig_text type="array">
+        <languageKey index="default" type="array">
+        </languageKey>
+    </orig_text>
+</T3locallang>

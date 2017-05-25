@@ -1,0 +1,49 @@
+2015-07-30	Daniel Minder <typo3@minder.de>
+
+	*	Version 6.2 compatibility
+
+2013-03-03	Daniel Minder <typo3@minder.de>
+
+	* Add switch for deprecated function t3lib_div::intInRange
+
+2013-02-01	Daniel Minder <typo3@minder.de>
+
+	* Save IP address of user at login and show it in backend
+
+2011-05-23	Daniel Minder <typo3@minder.de>
+	
+	* -- must not appear in HTML comments
+	  (Thanks to Sander Lenselink for the report and support)
+
+2011-03-10	Daniel Minder <typo3@minder.de>
+
+	* Make sure session data is stored even when the user is redirected
+	after logging in
+
+2011-03-04	Daniel Minder <typo3@minder.de>
+
+	* Removed deprecated functions (for GPvar patch thanks to Michiel Roos)
+
+2009-04-21	Dmitry Dulepov  <dmitry.dulepov@gmail.com>
+
+	* Changed contact information
+
+2008-07-23	Dmitry Dulepov	<dmitry@typo3.org>
+
+	* Fixed problem with non-existing php3Labels in mod1/index.php
+
+2008-06-20	Dmitry Dulepov	<dmitry@typo3.org>
+
+	* Removed xclass from SVN
+	* Added $GLOBALS to ext_localconf.php
+
+2008-03-17	Dmitry Dulepov	<dmitry@typo3.org>
+
+	* Convert locallang files to XML format
+	* Added reference index to TSFE hook
+	* Added tables to $TCA to prevent Install tool from deleting them
+
+2008-03-13	Dmitry Dulepov	<dmitry@typo3.org>
+
+	* Changed ext to use TSFE hook instead of XCLASS
+	* Added page report

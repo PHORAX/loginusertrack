@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!-- $Id: locallang_db.xml 208 2007-10-04 10:50:22Z dima $ -->
+<T3locallang>
+	<meta type="array">
+		<description>Database labels</description>
+		<type>database</type>
+		<csh_table></csh_table>
+		<fileId>EXT:loginusertrack/locallang_db.xml</fileId>
+		<labelContext type="array">
+		</labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_loginusertrack_stat">[loginusertrack] User sessions</label>
+			<label index="tx_loginusertrack_stat.fe_user">Frontend user:</label>
+			<label index="tx_loginusertrack_stat.session_login">Session start:</label>
+			<label index="tx_loginusertrack_stat.last_page_hit">Session end:</label>
+			<label index="tx_loginusertrack_stat.session_hit_counter">Number of visited pages:</label>
+			<label index="tx_loginusertrack_stat.page_id">Login page:</label>
+               <label index="tx_loginusertrack_stat.ip_address">IP address:</label>
+			<label index="tx_loginusertrack_pagestat">[loginusertrack] Page statistics</label>
+			<label index="tx_loginusertrack_pagestat.fe_user">Frontend user:</label>
+			<label index="tx_loginusertrack_pagestat.sesstat_uid">Session record:</label>
+			<label index="tx_loginusertrack_pagestat.page_id">Visited page:</label>
+			<label index="tx_loginusertrack_pagestat.hits">Number of visits:</label>
+		</languageKey>
+	</data>
+</T3locallang>
