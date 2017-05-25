@@ -1,5 +1,4 @@
 <?php
-// $Id: tca.php 8343 2008-02-21 13:24:58Z liels_bugs $
 if (!defined ('TYPO3_MODE')) die('Access denied.');
 
 $GLOBALS['TCA']['tx_loginusertrack_stat'] = array(
@@ -133,5 +132,3 @@ $GLOBALS['TCA']['tx_loginusertrack_pagestat'] = array(
 		0 => array('showitem' => 'fe_user;;;;1, sesstat_uid, page_id, hits'),
 	),
 );
-
-?>
