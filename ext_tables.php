@@ -15,12 +15,12 @@ $GLOBALS['TCA']['tx_loginusertrack_stat'] = array(
 		'crdate' => 'session_login',
 		'sortby' => 'last_page_hit',
 		'default_sortby' => ' ORDER BY last_page_hit DESC',
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'tca.php',
+		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY).'tca.php',
 		'hideTable' => true,
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY).'ext_icon.gif',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY).'ext_icon.gif',
 	)
 );
-t3lib_extMgm::allowTableOnStandardPages('tx_loginusertrack_stat');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_loginusertrack_stat');
 
 $GLOBALS['TCA']['tx_loginusertrack_pagestat'] = array(
 	'ctrl' => array (
@@ -30,9 +30,9 @@ $GLOBALS['TCA']['tx_loginusertrack_pagestat'] = array(
 		'crdate' => 'crdate',
 		'sortby' => 'crdate',
 		'default_sortby' => ' ORDER BY crdate DESC',
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'tca.php',
+		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY).'tca.php',
 		'hideTable' => true,
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY).'ext_icon.gif',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY).'ext_icon.gif',
 	)
 );
-t3lib_extMgm::allowTableOnStandardPages('tx_loginusertrack_pagestat');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_loginusertrack_pagestat');
