@@ -33,7 +33,7 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
 
 class UserTrack extends \TYPO3\CMS\Backend\Module\BaseScriptClass {
 	protected $pageinfo;
-	
+
 	/**
 	 * Constructor
 	 */
@@ -74,7 +74,7 @@ class UserTrack extends \TYPO3\CMS\Backend\Module\BaseScriptClass {
 		$access = is_array($this->pageinfo) ? 1 : 0;
 
 		// start the doc
-		$this->doc = GeneralUtility::makeInstance('\\TYPO3\\CMS\\Backend\\Template\\MediumDocumentTemplate');
+		$this->doc = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Template\DocumentTemplate::class);
 		$this->doc->backPath = $GLOBALS['BACK_PATH'];
 
 		// TODO: does this make sense?
@@ -83,15 +83,15 @@ class UserTrack extends \TYPO3\CMS\Backend\Module\BaseScriptClass {
 			$this->doc->form='<form action="' . BackendUtility::getModuleUrl($this->MCONF['name']) . '" method="post">';
 
 			// Draw the header
-			$headerSection = $this->doc->getHeader('pages', 
-				$this->pageinfo, 
+			$headerSection = $this->doc->getHeader('pages',
+				$this->pageinfo,
 				$this->pageinfo['_thePath']).'<br>'.$GLOBALS['LANG']->sL('LLL:EXT:lang/locallang_core.php:labels.path').': '.GeneralUtility::fixed_lgd_cs($this->pageinfo['_thePath'],
 				-50);
 
 			$this->content.=$this->doc->startPage($GLOBALS['LANG']->getLL('title'));
 			$this->content.=$this->doc->header($GLOBALS['LANG']->getLL('title'));
 			$this->content.=$this->doc->spacer(5);
-			$this->content.=$this->doc->section('', 
+			$this->content.=$this->doc->section('',
 				$this->doc->funcMenu($headerSection, BackendUtility::getFuncMenu($this->id, 'SET[function]', $this->MOD_SETTINGS['function'], $this->MOD_MENU['function']))
 			);
 			$this->content.=$this->doc->divider(5);
