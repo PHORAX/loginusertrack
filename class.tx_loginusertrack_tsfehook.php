@@ -91,7 +91,7 @@ class tx_loginusertrack_tsfehook
         $GLOBALS['TYPO3_DB']->exec_INSERTquery('tx_loginusertrack_pagestat', $fields);
         $pagestat_uid = $GLOBALS['TYPO3_DB']->sql_insert_id();
 
-        $ref = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Core\Database\ReferenceIndex');
+        $ref = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ReferenceIndex::class);
         /* @var $ref \TYPO3\CMS\Core\Database\ReferenceIndex */
         $ref->updateRefIndexTable('tx_loginusertrack_stat', $sesstat_uid);
         $ref->updateRefIndexTable('tx_loginusertrack_pagestat', $pagestat_uid);
@@ -136,7 +136,7 @@ class tx_loginusertrack_tsfehook
                     );
                     $GLOBALS['TYPO3_DB']->exec_INSERTquery('tx_loginusertrack_pagestat', $fields);
 
-                    $ref = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Core\Database\ReferenceIndex');
+                    $ref = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ReferenceIndex::class);
                     /* @var $ref \TYPO3\CMS\Core\Database\ReferenceIndex */
                     $ref->updateRefIndexTable('tx_loginusertrack_pagestat', $GLOBALS['TYPO3_DB']->sql_insert_id());
                 }
