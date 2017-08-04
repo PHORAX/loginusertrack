@@ -17,6 +17,24 @@ class LoginusertrackController extends \TYPO3\CMS\Backend\Module\BaseScriptClass
     protected $pageinfo;
 
     /**
+     * @var string
+     */
+    protected $moduleName = 'web_txloginusertrackM1';
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->iconFactory = GeneralUtility::makeInstance(IconFactory::class);
+        $this->moduleTemplate = GeneralUtility::makeInstance(ModuleTemplate::class);
+        $this->getLanguageService()->includeLLFile('EXT:lang/Resources/Private/Language/locallang_mod_web_func.xlf');
+        $this->MCONF = [
+            'name' => $this->moduleName,
+        ];
+    }
+
+    /**
      * Injects the request object for the current request or subrequest
      * Then checks for module functions that have hooked in, and renders menu etc.
      *
@@ -51,11 +69,11 @@ class LoginusertrackController extends \TYPO3\CMS\Backend\Module\BaseScriptClass
     {
         $this->MOD_MENU = Array(
             'function' => Array(
-                '1' => $GLOBALS['LANG']->getLL('function1'),
-                #			'2' => $GLOBALS['LANG']->getLL('function2'),
-                '3' => $GLOBALS['LANG']->getLL('function3'),
-                '4' => $GLOBALS['LANG']->getLL('function4'),
-                '5' => $GLOBALS['LANG']->getLL('function5'),
+                '1' => $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:function1'),
+                #			'2' => $this->getLanguageService()->sL('function2'),
+                '3' => $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:function3'),
+                '4' => $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:function4'),
+                '5' => $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:function5'),
             )
         );
         parent::menuConfig();
@@ -89,9 +107,9 @@ class LoginusertrackController extends \TYPO3\CMS\Backend\Module\BaseScriptClass
                     $this->pageinfo['_thePath']) . '<br>' . $GLOBALS['LANG']->sL('LLL:EXT:lang/locallang_core.php:labels.path') . ': ' . GeneralUtility::fixed_lgd_cs($this->pageinfo['_thePath'],
                     -50);
 
-            $this->content .= $this->doc->startPage($GLOBALS['LANG']->getLL('title'));
-            $this->content .= $this->doc->header($GLOBALS['LANG']->getLL('title'));
-            $this->content .= $this->doc->spacer(5);
+            $this->content .= $this->doc->startPage($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:title'));
+            $this->content .= $this->doc->header($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:title'));
+
             $this->content .= $this->doc->section('',
                 $this->doc->funcMenu($headerSection,
                     BackendUtility::getFuncMenu($this->id, 'SET[function]', $this->MOD_SETTINGS['function'],
@@ -104,18 +122,18 @@ class LoginusertrackController extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 
             // ShortCut
             if ($GLOBALS['BE_USER']->mayMakeShortcut()) {
-                $this->content .= $this->doc->spacer(20) . $this->doc->section('',
+                $this->content .= $this->doc->section('',
                         $this->doc->makeShortcutIcon('id', implode(',', array_keys($this->MOD_MENU)),
                             $this->MCONF['name']));
             }
 
         } else {
             // If no access or if ID == zero
-            $this->content .= $this->doc->startPage($GLOBALS['LANG']->getLL('title'));
-            $this->content .= $this->doc->header($GLOBALS['LANG']->getLL('title'));
-            $this->content .= $this->doc->spacer(5);
+            $this->content .= $this->doc->startPage($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:title'));
+            $this->content .= $this->doc->header($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:title'));
         }
-        $this->content .= $this->doc->spacer(10);
+        
+
         $this->content .= $this->doc->endPage();
     }
 
@@ -162,34 +180,33 @@ class LoginusertrackController extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 
                 $content = '<table border="0" cellpadding="1" cellspacing="1" width="100%">
 				<tr bgcolor="' . $this->doc->bgColor5 . '">
-					<td><strong>' . $GLOBALS['LANG']->getLL('header_datetime') . '</strong></td>
-					<td><strong>' . $GLOBALS['LANG']->getLL('header_age') . '</strong></td>
-					<td><strong>' . $GLOBALS['LANG']->getLL('header_username') . '</strong></td>
-					<td><strong>' . $GLOBALS['LANG']->getLL('header_name') . '</strong></td>
-					<td><strong>' . $GLOBALS['LANG']->getLL('header_session_lgd') . '</strong></td>
-					<td><strong>' . $GLOBALS['LANG']->getLL('header_pagehits') . '</strong></td>
-					<td><strong>' . $GLOBALS['LANG']->getLL('header_ipaddress') . '</strong></td>
+					<td><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:header_datetime') . '</strong></td>
+					<td><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:header_age') . '</strong></td>
+					<td><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:header_username') . '</strong></td>
+					<td><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:header_name') . '</strong></td>
+					<td><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:header_session_lgd') . '</strong></td>
+					<td><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:header_pagehits') . '</strong></td>
+					<td><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:header_ipaddress') . '</strong></td>
 				</tr>
 				' . implode('', $list) . '</table>';
 
                 if ($userId > 0) {
-                    $inst = GeneralUtility::makeInstance('DannyM\\Loginusertrack\\PageStats');
                     /* @var $inst tx_loginusertrack_pagestats */
                     $modParam = array('id' => $this->id);
                     if ($sessId) {
                         $modParam['useruid'] = $userId;
                     }
                     $content = '<a href="' . BackendUtility::getModuleUrl($this->MCONF['name'], $modParam) .
-                        '"><strong>' . $GLOBALS['LANG']->getLL($sessId ? 'modulecont_listAllSessions' : 'modulecont_listAllUsers') .
+                        '"><strong>' . $this->getLanguageService()->sL($sessId ? 'modulecont_listAllSessions' : 'modulecont_listAllUsers') .
                         '</strong></a><br /> <br />' . $content .
-                        $this->doc->section($GLOBALS['LANG']->getLL('header_pagestats'),
+                        $this->doc->section($this->getLanguageService()->sL('header_pagestats'),
                             $sessId ?
-                                $inst->getPageStatsForSession($this->doc, $sessId) :
-                                $inst->getPageStats($this->doc, $userId)) .
+                                $this->getPageStatsForSession($this->doc, $sessId) :
+                                $this->getPageStats($this->doc, $userId)) .
                         '<br /> <br />';
                 }
 
-                $this->content .= $this->doc->section($GLOBALS['LANG']->getLL('mainheader_log'), $content, 0, 1);
+                $this->content .= $this->doc->section($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:mainheader_log'), $content, 0, 1);
                 break;
             case 3:  // Monthly view
                 $times = array();
@@ -225,16 +242,16 @@ class LoginusertrackController extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 
                     $content .= '
 					<BR>
-					' . $GLOBALS['LANG']->getLL('period') . ' <strong>' . date($GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy'],
+					' . $this->getLanguageService()->sL('period') . ' <strong>' . date($GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy'],
                             $times[$a + 1]) . ' - ' . date($GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy'],
                             $times[$a] - 1) . '</strong><BR>
 					<table border="0" cellpadding="1" cellspacing="1" width="100%">
 					<tr bgColor="' . $this->doc->bgColor5 . '">
-						<td><strong>' . $GLOBALS['LANG']->getLL('header_datetime') . '</strong></td>
-						<td><strong>' . $GLOBALS['LANG']->getLL('header_age') . '</strong></td>
-						<td><strong>' . $GLOBALS['LANG']->getLL('header_username') . '</strong></td>
-						<td><strong>' . $GLOBALS['LANG']->getLL('header_name') . '</strong></td>
-						<td><strong>' . $GLOBALS['LANG']->getLL('header_logins') . '</strong></td>
+						<td><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:header_datetime') . '</strong></td>
+						<td><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:header_age') . '</strong></td>
+						<td><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:header_username') . '</strong></td>
+						<td><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:header_name') . '</strong></td>
+						<td><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:header_logins') . '</strong></td>
 					</tr>
 
 					' . implode('', $list) . '</table>';
@@ -242,21 +259,419 @@ class LoginusertrackController extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 
                 if ($userId > 0) {
                     $content = '<a href="' . BackendUtility::getModuleUrl($this->MCONF['name'],
-                            array('id' => $this->id)) . '"><strong>' . $GLOBALS['LANG']->getLL('modulecont_listAllUsers') . '</strong></a><br>' . $content;
+                            array('id' => $this->id)) . '"><strong>' . $this->getLanguageService()->sL('modulecont_listAllUsers') . '</strong></a><br>' . $content;
                 }
 
-                $this->content .= $this->doc->section($GLOBALS['LANG']->getLL('mainheader_monthly'), $content, 0, 1);
+                $this->content .= $this->doc->section($this->getLanguageService()->sL('mainheader_monthly'), $content, 0, 1);
                 break;
             case 4:  // Inactive users
-                $inst = GeneralUtility::makeInstance('DannyM\\Loginusertrack\\LastLogin');
-                /* @var $inst tx_loginusertrack_lastlogin */
-                $content = $inst->main($this->id, $this, '');
+                $content = $this->lastLogin($this->id, $this, '');
                 break;
             case 5:  // Active users
-                $inst = GeneralUtility::makeInstance('DannyM\\Loginusertrack\\LastLogin');
-                /* @var $inst tx_loginusertrack_lastlogin */
-                $content = $inst->main($this->id, $this, 'active');
+                $content = $this->lastLogin($this->id, $this, 'active');
                 break;
         }
     }
+
+
+    /**
+     * Former class PageStats
+     */
+
+    /**
+     * Makes report about visited pages.
+     *
+     * @param    mediumDoc $doc Document (like mediumDoc)
+     * @param    int $user User ID
+     * @param    int $periodStart Start period
+     * @param    int $periodEnd End period
+     * @return    string    Generated HTML
+     */
+    function getPageStatsForSession(&$doc, $session_id)
+    {
+        /* @var $doc \TYPO3\CMS\Backend\Template\MediumDocumentTemplate */
+        $content = '<table width="100%" border="0" cellpadding="1" cellspacing="1">' .
+            '<tr bgcolor="' . $doc->bgColor5 . '">' .
+            '<td><strong>' . $GLOBALS['LANG']->getLL('header_pid') . '</strong></td>' .
+            '<td><strong>' . $GLOBALS['LANG']->getLL('header_pagetitle') . '</strong></td>' .
+            '<td><strong>' . $GLOBALS['LANG']->getLL('header_pagehits') . '</strong></td>' .
+            '<td><strong>' . $GLOBALS['LANG']->getLL('header_firsthit') . '</strong></td>' .
+            '<td><strong>' . $GLOBALS['LANG']->getLL('header_lasthit') . '</strong></td>' .
+            '</tr>';
+        // Get records
+        $res = $GLOBALS['TYPO3_DB']->sql_query('SELECT t1.page_id,t2.title,t1.hits,t1.crdate, t1.tstamp ' .
+            'FROM tx_loginusertrack_pagestat t1 LEFT JOIN pages t2 ON ' .
+            't1.page_id=t2.uid WHERE sesstat_uid=' . intval($session_id) .
+            BackendUtility::deleteClause('pages', 't2') .
+            ' ORDER BY t1.hits DESC');
+        $num = 0;
+        $numResults = $GLOBALS['TYPO3_DB']->sql_num_rows($res);
+        while ($num < 64 && false != ($ar = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
+            $content .= '<tr bgcolor="' . $doc->bgColor4 . '"><td>' .
+                $ar['page_id'] . '</td><td>' .
+                '<a target="_blank" href="' . GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/index.php?id=' . $ar['page_id'] . '">' .
+                htmlspecialchars($ar['title']) . '</a></td><td>' .
+                $ar['hits'] . '</td><td>' .
+                date($GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy'] . ' ' . $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm'],
+                    $ar['crdate']) . '</td><td>' .
+                date($GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy'] . ' ' . $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm'],
+                    $ar['tstamp']) . '</td></tr>';
+            $num++;
+        }
+        $GLOBALS['TYPO3_DB']->sql_free_result($res);
+        if ($num < $numResults) {
+            $content .= '<tr><td colspan="4">' .
+                sprintf($GLOBALS['LANG']->getLL('message_moreresults'), $numResults - $num) .
+                '</td></tr>';
+        }
+        $content .= '</table>';
+        return $content;
+    }
+
+    /**
+     * Makes report about visited pages.
+     *
+     * @param    mediumDoc $doc Document (like mediumDoc)
+     * @param    int $user User ID
+     * @param    int $periodStart Start period
+     * @param    int $periodEnd End period
+     * @return    string    Generated HTML
+     */
+    function getPageStats(&$doc, $user, $periodStart = 0, $periodEnd = 0)
+    {
+        /* @var $doc \TYPO3\CMS\Backend\Template\MediumDocumentTemplate */
+        $content = '<table width="100%" border="0" cellpadding="1" cellspacing="1">' .
+            '<tr bgcolor="' . $doc->bgColor5 . '">' .
+            '<td><strong>' . $GLOBALS['LANG']->getLL('header_pid') . '</strong></td>' .
+            '<td><strong>' . $GLOBALS['LANG']->getLL('header_pagetitle') . '</strong></td>' .
+            '<td><strong>' . $GLOBALS['LANG']->getLL('header_numsessions') . '</strong></td>' .
+            '<td><strong>' . $GLOBALS['LANG']->getLL('header_pagehits') . '</strong></td>' .
+            '<td><strong>' . $GLOBALS['LANG']->getLL('header_firsthit') . '</strong></td>' .
+            '<td><strong>' . $GLOBALS['LANG']->getLL('header_lasthit') . '</strong></td>' .
+            '</tr>';
+        // Get records
+        $res = $GLOBALS['TYPO3_DB']->sql_query(
+            'SELECT COUNT(page_id) AS num_sessions, SUM(hits) AS num_hits, ' .
+            'MIN(t1.crdate) AS crdate, MAX(t1.tstamp) AS tstamp, page_id, title FROM ' .
+            'tx_loginusertrack_pagestat t1 LEFT JOIN pages t2 ON ' .
+            't1.page_id=t2.uid WHERE fe_user=' . intval($user) .
+            BackendUtility::deleteClause('pages', 't2') .
+            ' GROUP BY page_id ORDER BY hits DESC'
+        );
+        $num = 0;
+        $numResults = $GLOBALS['TYPO3_DB']->sql_num_rows($res);
+        while ($num < 64 && false != ($ar = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
+            $content .= '<tr bgcolor="' . $doc->bgColor4 . '"><td>' .
+                $ar['page_id'] . '</td><td>' .
+                '<a target="_blank" href="' . GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/index.php?id=' . $ar['page_id'] . '">' .
+                htmlspecialchars($ar['title']) . '</a></td><td>' .
+                $ar['num_sessions'] . '</td><td>' .
+                $ar['num_hits'] . '</td><td>' .
+                date($GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy'] . ' ' . $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm'],
+                    $ar['crdate']) . '</td><td>' .
+                date($GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy'] . ' ' . $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm'],
+                    $ar['tstamp']) . '</td></tr>';
+            $num++;
+        }
+        $GLOBALS['TYPO3_DB']->sql_free_result($res);
+        if ($num < $numResults) {
+            $content .= '<tr><td colspan="4">' .
+                sprintf($GLOBALS['LANG']->getLL('message_moreresults'), $numResults - $num) .
+                '</td></tr>';
+        }
+        $content .= '</table>';
+        return $content;
+    }
+
+
+    var $daySpanBetweenCrAndLogin = 20;
+    var $subject = 'Login User Notice!';
+
+    /**
+     * Main function for both "Active users" and "Inactive users"
+     *
+     * @param    integer $id : The current page id of the module. This is where the users are sought for
+     * @param    object $pObj : Reference to the parent object of the module ($this)
+     * @param    string $mode : "active": Shows active users. Default: Shows in active.
+     * @return    void        Sets the content in $pObj->content
+     */
+    function lastLogin($id, &$pObj, $mode)
+    {
+        $content = '';
+
+        // Get days back.
+        $daysBack = \TYPO3\CMS\Core\Utility\MathUtility::forceIntegerInRange(GeneralUtility::_GP('daysBack'), -1, 1000);
+
+        $content .= '
+			' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_main_enterTheDaysSince', '1') . ':<br>
+			<input type="text" name="daysBack" value="' . htmlspecialchars($daysBack ? $daysBack : 100) . '">
+			<input type="hidden" name="id" value="' . htmlspecialchars($id) . '">
+			<input type="submit" name="_" value="' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_main_setDaysSinceLast', '1') . '">
+			<br>
+		';
+
+        // Total number of users:
+        list($row) = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('COUNT(*) AS t', 'fe_users',
+            'pid=' . intval($id) . BackendUtility::deleteClause('fe_users'));
+        $content .= '<strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_main_totalNumberOfUsers',
+                '1') . ':</strong> ' . $row['t'];
+
+        $pObj->content .= $pObj->doc->section($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:Last_logins'), $content, 0, 1);
+
+        //
+        if ($daysBack) {
+            switch ($mode) {
+                case 'active':
+                    $content = $this->showActive($id, $pObj, $daysBack);
+                    $pObj->content .= $pObj->doc->section(sprintf($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_main_activeUsersLoggedIn',
+                        '1'), $daysBack), $content, 0, 1);
+                    break;
+                default:
+                    $content = $this->removeOld($id, $pObj, $daysBack);
+                    $pObj->content .= $pObj->doc->section(sprintf($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_usersWithLastLogin',
+                        '1'), $daysBack), $content, 0, 1);
+                    break;
+            }
+        }
+    }
+
+    /**
+     * Code for the "inactive" function, enabling us to remove users and send them warning emails.
+     *
+     * @param    integer $id : Page id, see main
+     * @param    object $pObj : Reference to the parent object of the module ($this)
+     * @param    integer $daysBack : The number of days to use as limit. Coming from input-field.
+     * @return    string        HTML content
+     */
+    function removeOld($id, &$pObj, $daysBack)
+    {
+        $content = '';
+
+        $tcemain_cmd = array();
+        $testUsername = trim(GeneralUtility::_GP('test_username'));
+        $emailMsg = trim(GeneralUtility::_GP('email_msg'));
+        $action = GeneralUtility::_GP('sendWarningEmail') ? (GeneralUtility::_GP('_DELETE') ? 'delete' : 'email') : '';    // Set to blank, "delete" or "email"
+        $this->subject = $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_subject');
+        $senderName = GeneralUtility::_GP('header_name');
+        $senderMail = GeneralUtility::_GP('header_email');
+
+        // old users:
+        $query = 'SELECT uid,username,email,name,lastlogin,password FROM fe_users WHERE pid=' . intval($id) .
+            ($testUsername ? ' AND username="' . addslashes($testUsername) . '"' : ' AND lastlogin < ' . (time() - $daysBack * 24 * 3600)) .
+            BackendUtility::deleteClause('fe_users') .
+            ' ORDER BY name';
+        $res = $GLOBALS['TYPO3_DB']->sql_query($query);
+
+        $tRows[] = '<tr bgcolor="' . $GLOBALS['TBE_TEMPLATE']->bgColor5 . '">
+			<td nowrap><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_username', '1') . '</strong></td>
+			<td nowrap><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_name', '1') . '</strong></td>
+			<td nowrap><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_email', '1') . '</strong></td>
+			<td nowrap><strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_lastLogin', '1') . '</strong></td>
+		</tr>';
+
+        $emailsAcc = array();
+        while (($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
+            $tRows[] = '<tr bgcolor="' . $GLOBALS['TBE_TEMPLATE']->bgColor4 . '">
+				<td nowrap>' . htmlspecialchars($row['username']) . '</td>
+				<td nowrap>' . htmlspecialchars($row['name']) . '</td>
+				<td nowrap>' . htmlspecialchars($row['email']) . '</td>
+				<td nowrap>' . htmlspecialchars(date($GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy'], $row['lastlogin'])) . '</td>
+			</tr>';
+
+            if (trim($row['email'])) {
+                $emailsAcc[] = preg_replace('/--/', '&#45;&#45;', trim($row['email']));
+            }
+
+            if ($action == 'email') {
+                $this->sendWarningEmail($row, $emailMsg, $senderMail, $senderName);
+            } elseif ($action == 'delete') {
+                $tcemain_cmd['fe_users'][$row['uid']]['delete'] = 1;
+                if ($emailMsg) {
+                    $this->sendWarningEmail($row, $emailMsg, $senderMail, $senderName);
+                }
+            }
+        }
+        $num_rows = $GLOBALS['TYPO3_DB']->sql_num_rows($res);
+
+        if ($action == 'delete') {
+            $content .= '<span style="color:red;">' . sprintf($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_deletedSUsers',
+                    '1'), $num_rows) . '</span><br>';
+            if ($emailMsg) {
+                $content .= '<span style="color:red;">' . sprintf($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_sentDeletedEmails',
+                        '1'), $num_rows) . '</span><br>';
+            }
+
+            $tce = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\DataHandling\\DataHandler');
+            $tce->start(array(), $tcemain_cmd);
+            $tce->process_cmdmap();
+        } else {
+            if ($action == 'email') {
+                $content .= '<span style="color:red;">' . sprintf($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_sentSWarningEmails',
+                        '1'), $num_rows) . '</span><br>';
+            }
+
+            $content .= '
+			<strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_numberOfInactiveUsers',
+                    '1') . '</strong> ' . $num_rows . '<br>
+			(' . sprintf($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_didNotLoginDuring', '1'),
+                    '<strong>' . $daysBack . '</strong>') . ')<br>
+			<table border="0" cellpadding="1" cellspacing="2">' . implode('
+			', $tRows) . '</table>';
+
+            $msg = $emailMsg ? $emailMsg : sprintf($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_hiNameYouAre', '1'),
+                GeneralUtility::getIndpEnv('TYPO3_SITE_URL'), $daysBack, GeneralUtility::getIndpEnv('TYPO3_SITE_URL'));
+
+            $delMsg = sprintf($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_hiNameYouWere', '1'),
+                GeneralUtility::getIndpEnv('TYPO3_SITE_URL'));
+
+            $content .= '
+<br>
+<strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_sendingAWarningEmail', '1') . '</strong><br>
+<br>
+<textarea name="email_msg" rows="20" ' . $GLOBALS['TBE_TEMPLATE']->formWidthText(48,
+                    '') . '>' . GeneralUtility::formatForTextarea($msg) . '</textarea><br>
+<strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_senderName', '1') . '</strong><br>
+<input type="text" name="header_name" value="' . htmlspecialchars(GeneralUtility::_GP('header_name') ? GeneralUtility::_GP('header_name') : $GLOBALS['BE_USER']->user['realName']) . '"><br>
+<strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_senderEmail', '1') . '</strong><br>
+<input type="text" name="header_email" value="' . htmlspecialchars(GeneralUtility::_GP('header_email') ? GeneralUtility::_GP('header_email') : $GLOBALS['BE_USER']->user['email']) . '"><br>
+' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_sendATestTo',
+                    '1') . ' <input type="text" name="test_username" value="' . htmlspecialchars(GeneralUtility::_GP('test_username')) . '"><br>
+<input type="submit" name="sendWarningEmail" value="' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_sendWarningEmail',
+                    '1') . '"> - <input type="submit" name="_" value="' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_sendUpdate',
+                    '1') . '"><br>
+
+<!--
+
+' . implode(', ', $emailsAcc) . '
+
+-->
+
+<div style="background-color: red; color:white; padding-left: 5px;">
+<input type="checkbox" name="_DELETE" value="" onclick="
+	document.forms[0].sendWarningEmail.value=this.checked?\'' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_deleteUsers',
+                    '1') . '\':\'' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_sendWarningEmail', '1') . '\';
+	if (this.checked)	{
+		this.value = document.forms[0].email_msg.value;
+		document.forms[0].email_msg.value=unescape(\'' . rawurlencode(trim($delMsg)) . '\');
+	} else {
+		document.forms[0].email_msg.value = this.value;
+	}
+	"> <strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_delete', '1') . '</strong><br>
+' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_showactive_ifYouCheckThis') . '
+</div>
+
+
+		';
+        }
+
+        $GLOBALS['TYPO3_DB']->sql_free_result($res);
+        return $content;
+    }
+
+    /**
+     * Shows active users in a table
+     *
+     * @param    integer $id : Page id, see main function
+     * @param    object $pObj : Reference to the parent object of the module ($this)
+     * @param    integer $daysBack : Number of days to use as limit for active users. See description in the output in the module.
+     * @return    string        HTML output
+     */
+    function showActive($id, &$pObj, $daysBack)
+    {
+
+        // Total number of 'active' users were created more than XX days ago and having login within the last XX days
+        $orderBy = GeneralUtility::_GP('orderby');
+        $query = 'SELECT uid,username,email,name,lastlogin FROM fe_users WHERE pid=' . intval($id) .
+            ' AND lastlogin > ' . (time() - $daysBack * 24 * 3600) .
+            ' AND crdate < ' . (time() - $daysBack * 24 * 3600) .
+            ' AND lastlogin-crdate > ' . (24 * 3600 * $this->daySpanBetweenCrAndLogin) .
+            BackendUtility::deleteClause('fe_users') .
+            ' ORDER BY ' . (GeneralUtility::inList('username,name,email,lastlogin',
+                $orderBy) ? $orderBy . ($orderBy == 'lastlogin' ? ' DESC' : '') : 'name');
+        $res = $GLOBALS['TYPO3_DB']->sql_query($query);
+        $tRows = array();
+
+        $tRows[] = '<tr bgcolor="' . $GLOBALS['TBE_TEMPLATE']->bgColor5 . '">
+			<td nowrap><strong><a href="' . BackendUtility::getModuleUrl($pObj->MCONF['name'], array(
+                'id' => $id,
+                'daysBack' => $daysBack,
+                'orderby' => 'username'
+            )) . '">' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_showactive_username', '1') . '</a></strong></td>
+			<td nowrap><strong><a href="' . BackendUtility::getModuleUrl($pObj->MCONF['name'], array(
+                'id' => $id,
+                'daysBack' => $daysBack,
+                'orderby' => 'name'
+            )) . '">' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_showactive_name', '1') . '</a></strong></td>
+			<td nowrap><strong><a href="' . BackendUtility::getModuleUrl($pObj->MCONF['name'], array(
+                'id' => $id,
+                'daysBack' => $daysBack,
+                'orderby' => 'email'
+            )) . '">' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_showactive_email', '1') . '</a></strong></td>
+			<td nowrap><strong><a href="' . BackendUtility::getModuleUrl($pObj->MCONF['name'], array(
+                'id' => $id,
+                'daysBack' => $daysBack,
+                'orderby' => 'lastlogin'
+            )) . '">' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_showactive_lastLogin', '1') . '</a></strong></td>
+		</tr>';
+
+        $emailsAcc = array();
+        while (($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))) {
+            if (trim($row['email'])) {
+                $emailsAcc[] = preg_replace('/--/', '&#45;&#45;', trim($row['email']));
+            }
+
+            $tRows[] = '<tr bgcolor="' . $GLOBALS['TBE_TEMPLATE']->bgColor4 . '">
+				<td nowrap>' . htmlspecialchars($row['username']) . '</td>
+				<td nowrap>' . htmlspecialchars($row['name']) . '</td>
+				<td nowrap>' . htmlspecialchars($row['email']) . '</td>
+				<td nowrap>' . htmlspecialchars(date($GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy'], $row['lastlogin'])) . '</td>
+			</tr>';
+        }
+        $content .= '
+		<strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_showactive_numberOfActiveUsers',
+                '1') . '</strong> ' . $GLOBALS['TYPO3_DB']->sql_num_rows($res) . '<br>
+' . sprintf($this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_sendwarnin_usersAreShownHere'), $daysBack, $daysBack,
+                $this->daySpanBetweenCrAndLogin) . '<br>
+
+<!--
+
+' . implode(', ', $emailsAcc) . '
+
+-->
+
+
+		<table border="0" cellpadding="1" cellspacing="1" width="100%">' . implode('
+		', $tRows) . '</table>';
+
+        $GLOBALS['TYPO3_DB']->sql_free_result($res);
+
+        return $content;
+    }
+
+    /**
+     * Sends a warning email to the fe_users record being input /
+     *
+     * @param    array $row : A fe_users row with fields like uid, username, email, name, password
+     * @param    string $emailMsg : The message to send. Can contain markers, ###USERNAME###, ###NAME###, ###PASSWORD###
+     * @param    string $senderMail : The mail address of the sender
+     * @param    string $senderName : The name of the sender
+     * @return    void
+     */
+    function sendWarningEmail($row, $emailMsg, $senderMail, $senderName)
+    {
+        $recipient = trim($row['email']);
+        if ($recipient) {
+            $markers = array('###USERNAME###', '###NAME###');
+            $subst = array($row['username'], $row['name']);
+            $message = str_replace($markers, $subst, $emailMsg);
+
+            $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Mail\\MailMessage');
+            $mail->setFrom(array($senderMail => $senderName))
+                ->setTo(array($recipient => $row['name']))
+                ->setSubject($this->subject)
+                ->setBody($message)
+                ->send();
+        }
+    }
+
 }

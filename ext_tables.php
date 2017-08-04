@@ -14,7 +14,7 @@ if (TYPO3_MODE === 'BE') {
             'access' => 'group,user',
             'name' => 'web_txloginusertrackM1',
             'icon' => 'EXT:loginusertrack/Resources/Public/Icons/moduleicon.gif',
-            'labels' => 'LLL:EXT:loginusertrack/Resources/Private/Language/locallang_mod.php'
+            'labels' => 'LLL:EXT:loginusertrack/Resources/Private/Language/locallang_mod.xml'
         ]
     );
 }
