@@ -5,7 +5,7 @@
 		<description>Database labels</description>
 		<type>database</type>
 		<csh_table></csh_table>
-		<fileId>EXT:loginusertrack/locallang_db.xml</fileId>
+		<fileId>EXT:loginusertrack/Resources/Private/Language/locallang_db.xml</fileId>
 		<labelContext type="array">
 		</labelContext>
 	</meta>

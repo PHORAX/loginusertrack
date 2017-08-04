@@ -1,7 +1,7 @@
 <?php
 return array(
     'ctrl' => array(
-        'title' => 'LLL:EXT:loginusertrack/locallang_db.xml:tx_loginusertrack_stat',
+        'title' => 'LLL:EXT:loginusertrack/Resources/Private/Language/locallang_db.xml:tx_loginusertrack_stat',
         'label' => 'uid',
         'tstamp' => 'last_page_hit',
         'crdate' => 'session_login',
@@ -15,7 +15,7 @@ return array(
     ),
     'columns' => array(
         'fe_user' => array(
-            'label' => 'LLL:EXT:loginusertrack/locallang_db.xml:tx_loginusertrack_stat.fe_user',
+            'label' => 'LLL:EXT:loginusertrack/Resources/Private/Language/locallang_db.xml:tx_loginusertrack_stat.fe_user',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -26,7 +26,7 @@ return array(
             ),
         ),
         'session_login' => array(
-            'label' => 'LLL:EXT:loginusertrack/locallang_db.xml:tx_loginusertrack_stat.session_login',
+            'label' => 'LLL:EXT:loginusertrack/Resources/Private/Language/locallang_db.xml:tx_loginusertrack_stat.session_login',
             'config' => array(
                 'type' => 'input',
                 'size' => 15,
@@ -34,7 +34,7 @@ return array(
             ),
         ),
         'last_page_hit' => array(
-            'label' => 'LLL:EXT:loginusertrack/locallang_db.xml:tx_loginusertrack_stat.last_page_hit',
+            'label' => 'LLL:EXT:loginusertrack/Resources/Private/Language/locallang_db.xml:tx_loginusertrack_stat.last_page_hit',
             'config' => array(
                 'type' => 'input',
                 'size' => 15,
@@ -42,14 +42,14 @@ return array(
             ),
         ),
         'session_hit_counter' => array(
-            'label' => 'LLL:EXT:loginusertrack/locallang_db.xml:tx_loginusertrack_stat.session_hit_counter',
+            'label' => 'LLL:EXT:loginusertrack/Resources/Private/Language/locallang_db.xml:tx_loginusertrack_stat.session_hit_counter',
             'config' => array(
                 'type' => 'input',
                 'eval' => 'int,required',
             ),
         ),
         'page_id' => array(
-            'label' => 'LLL:EXT:loginusertrack/locallang_db.xml:tx_loginusertrack_stat.page_id',
+            'label' => 'LLL:EXT:loginusertrack/Resources/Private/Language/locallang_db.xml:tx_loginusertrack_stat.page_id',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -60,7 +60,7 @@ return array(
             ),
         ),
         'ip_address' => array(
-            'label' => 'LLL:EXT:loginusertrack/locallang_db.xml:tx_loginusertrack_stat.ip_address',
+            'label' => 'LLL:EXT:loginusertrack/Resources/Private/Language/locallang_db.xml:tx_loginusertrack_stat.ip_address',
             'config' => array(
                 'type' => 'input',
                 'max' => 15,
