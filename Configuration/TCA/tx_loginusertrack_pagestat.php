@@ -1,10 +1,15 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die('Access denied.');
-}
-
-$GLOBALS['TCA']['tx_loginusertrack_stat'] = array(
-    'ctrl' => $GLOBALS['TCA']['tx_loginusertrack_stat']['ctrl'],
+return array(
+    'ctrl' => array(
+        'title' => 'LLL:EXT:loginusertrack/locallang_db.xml:tx_loginusertrack_pagestat',
+        'label' => 'uid',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'sortby' => 'crdate',
+        'default_sortby' => ' ORDER BY crdate DESC',
+        'hideTable' => true,
+        'iconfile' => 'EXT:loginusertrack/ext_icon.gif'
+    ),
     'interface' => Array(
         'maxDBListItems' => 60,
     ),
