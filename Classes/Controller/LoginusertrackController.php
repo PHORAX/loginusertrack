@@ -70,7 +70,6 @@ class LoginusertrackController extends \TYPO3\CMS\Backend\Module\BaseScriptClass
         $this->MOD_MENU = Array(
             'function' => Array(
                 '1' => $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:function1'),
-                #			'2' => $this->getLanguageService()->sL('function2'),
                 '3' => $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:function3'),
                 '4' => $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:function4'),
                 '5' => $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:function5'),
@@ -528,8 +527,7 @@ class LoginusertrackController extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 <br>
 <strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_sendingAWarningEmail', '1') . '</strong><br>
 <br>
-<textarea name="email_msg" rows="20" ' . $GLOBALS['TBE_TEMPLATE']->formWidthText(48,
-                    '') . '>' . GeneralUtility::formatForTextarea($msg) . '</textarea><br>
+<textarea name="email_msg" rows="20">' . htmlspecialchars($msg) . '</textarea><br>
 <strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_senderName', '1') . '</strong><br>
 <input type="text" name="header_name" value="' . htmlspecialchars(GeneralUtility::_GP('header_name') ? GeneralUtility::_GP('header_name') : $GLOBALS['BE_USER']->user['realName']) . '"><br>
 <strong>' . $this->getLanguageService()->sL('LLL:EXT:loginusertrack/Resources/Private/Language/locallang.xml:lastlogin_removeold_senderEmail', '1') . '</strong><br>
