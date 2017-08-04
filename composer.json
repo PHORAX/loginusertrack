@@ -1,6 +1,7 @@
 {
     "name": "phorax/loginusertrack",
 	"type": "typo3-cms-extension",
+    "license": ["GPL-2.0+"],
     "authors": [
         {
             "name": "PHORAX",
@@ -8,9 +9,11 @@
         }
     ],
     "autoload": {
+        "psr-4": {
+            "DannyM\\Loginusertrack\\": "Classes/"
+        },
         "classmap": [
-            "class.tx_loginusertrack_tsfehook.php",
-            "Classes/"
+            "class.tx_loginusertrack_tsfehook.php"
         ]
     }
 }

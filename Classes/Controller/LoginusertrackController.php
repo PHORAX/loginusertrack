@@ -1,50 +1,45 @@
 <?php
 
-namespace DannyM\Loginusertrack;
+namespace DannyM\Loginusertrack\Controller;
 
-/***************************************************************
- *  Copyright notice
- *
- *  (c) 2002 Kasper Skaarhoj (kasper@typo3.com)
- *  All rights reserved
- *
- *  This script is part of the Typo3 project. The Typo3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
-/**
- * Main backend module for the 'loginusertrack' extension.
- *
- * @author    Kasper Skaarhoj <kasper@typo3.com>
- */
-
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Imaging\Icon;
+use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\View\StandaloneView;
+use TYPO3\CMS\Fluid\ViewHelpers\Be\InfoboxViewHelper;
 
-class UserTrack extends \TYPO3\CMS\Backend\Module\BaseScriptClass
+class LoginusertrackController extends \TYPO3\CMS\Backend\Module\BaseScriptClass
 {
     protected $pageinfo;
 
     /**
-     * Constructor
+     * Injects the request object for the current request or subrequest
+     * Then checks for module functions that have hooked in, and renders menu etc.
+     *
+     * @param ServerRequestInterface $request the current request
+     * @param ResponseInterface $response
+     * @return ResponseInterface the response with the content
      */
-    public function __construct()
+    public function mainAction(ServerRequestInterface $request, ResponseInterface $response)
     {
-        $GLOBALS['LANG']->includeLLFile('EXT:loginusertrack/mod1/locallang.php');
-        $GLOBALS['BE_USER']->modAccess($GLOBALS['MCONF'], true);
-        parent::init();
+        $GLOBALS['SOBE'] = $this;
+        $this->init();
+
+        // Checking for first level external objects
+        $this->checkExtObj();
+
+        // Checking second level external objects
+        $this->checkSubExtObj();
+        $this->main();
+
+        $this->moduleTemplate->setContent($this->content);
+
+        $response->getBody()->write($this->moduleTemplate->renderContent());
+        return $response;
     }
 
     /**
@@ -121,17 +116,7 @@ class UserTrack extends \TYPO3\CMS\Backend\Module\BaseScriptClass
             $this->content .= $this->doc->spacer(5);
         }
         $this->content .= $this->doc->spacer(10);
-    }
-
-    /**
-     * Prints out the module HTML
-     *
-     * @return    void
-     */
-    function printContent()
-    {
         $this->content .= $this->doc->endPage();
-        echo $this->content;
     }
 
     /**
