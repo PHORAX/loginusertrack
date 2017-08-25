@@ -13,8 +13,12 @@ if (TYPO3_MODE === 'BE') {
             'routeTarget' => \DannyM\Loginusertrack\Controller\LoginusertrackController::class . '::mainAction',
             'access' => 'group,user',
             'name' => 'web_txloginusertrackM1',
-            'icon' => 'EXT:loginusertrack/Resources/Public/Icons/moduleicon.gif',
-            'labels' => 'LLL:EXT:loginusertrack/Resources/Private/Language/locallang_mod.xml'
+            'labels' => [
+            	'tabs_images' => [
+            		'tab' => 'EXT:loginusertrack/Resources/Public/Icons/moduleicon.gif'
+            	],
+            	'll_ref' => 'LLL:EXT:loginusertrack/Resources/Private/Language/locallang_mod.xml',
+            ],
         ]
     );
 }
