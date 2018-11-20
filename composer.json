@@ -1,5 +1,6 @@
 {
     "name": "phorax/loginusertrack",
+    "description": "Logs in a separate table each time a frontend user logs in and further the timespan of the session and viewed pages. Backend module provides statistics over the data.",
 	"type": "typo3-cms-extension",
     "license": ["GPL-2.0+"],
     "authors": [
@@ -8,6 +9,11 @@
             "email": "hello@phorax.com"
         }
     ],
+    "replace": {
+        "typo3/cms-core": "^9.5.0",
+        "typo3/cms-felogin": "^9.5.0",
+        "friendsoftypo3/typo3db-legacy": "^1.1"
+    },
     "autoload": {
         "psr-4": {
             "DannyM\\Loginusertrack\\": "Classes/"
